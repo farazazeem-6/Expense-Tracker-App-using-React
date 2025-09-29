@@ -1,21 +1,34 @@
 import React, { useState } from "react";
 
-function AddTransaction({ addTransaction }) {
+function AddTransaction({ addTransaction, transaction }) {
   const [title, setTitle] = useState("");
   const [amount, setAmount] = useState(0);
 
   function handleForm() {
     if (title !== "" && amount !== 0) {
+      const numericAmount = Number(amount);
+
+      const currentBalance = transaction.reduce(
+        (acc, curr) => acc + curr.amount,
+        0
+      );
+
+      if (numericAmount < 0 && Math.abs(numericAmount) > currentBalance) {
+        alert("Balance is low!");
+        return;
+      }
+
       const newTransaction = {
         id: Date.now(),
         title: title,
-        amount: Number(amount),
+        amount: numericAmount,
       };
+
       addTransaction(newTransaction);
       setTitle("");
       setAmount("");
     } else {
-      alert("Fill the details.");
+      alert("Please fill in all details.");
     }
   }
 

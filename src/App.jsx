@@ -57,7 +57,7 @@ function App() {
         </div>
 
         <div style={sectionStyle}>
-          <AddTransaction addTransaction={addTransaction} />
+          <AddTransaction addTransaction={addTransaction} transaction={transaction} />
         </div>
 
         <div style={sectionStyle}>
