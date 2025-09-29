@@ -1,11 +1,21 @@
 import { useState } from "react";
 import "./App.css";
+import Header from "./components/HeaderComp";
+import AddTransaction from "./components/AddTransaction";
+import Balance from "./components/Balance";
 
 function App() {
+  const [transaction, setTransaction] = useState([]);
 
+  function addTransaction(newTransaction) {
+    console.log(newTransaction);
+    setTransaction([...transaction, newTransaction]);
+  }
   return (
     <div>
-      <h1></h1>
+      <Header />
+      <Balance />
+      <AddTransaction addTransaction={addTransaction} />
     </div>
   );
 }
