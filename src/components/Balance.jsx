@@ -1,5 +1,3 @@
-import React from "react";
-
 function Balance({ balance }) {
   const containerStyle = {
     textAlign: "center",

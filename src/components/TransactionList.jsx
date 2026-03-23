@@ -1,5 +1,3 @@
-import React from "react";
-
 function TransactionList({ transaction, deleteTransaction }) {
   const containerStyle = {
     padding: "20px",

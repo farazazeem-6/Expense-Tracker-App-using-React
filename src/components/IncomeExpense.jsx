@@ -1,5 +1,3 @@
-import React from "react";
-
 function IncomeExpense({ transaction }) {
   const amounts = transaction.map((item) => item.amount);
 
